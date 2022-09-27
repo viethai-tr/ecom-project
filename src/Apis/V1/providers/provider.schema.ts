@@ -1,7 +1,8 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Exclude } from 'class-transformer';
-import mongoose, { Document, Types } from 'mongoose';
+import mongoose, { Collection, Document, Types } from 'mongoose';
 import { softDeletePlugin } from 'soft-delete-plugin-mongoose';
+import { CollectionSchema } from '../collections/collection.schema';
 
 export type ProviderDocument = Provider & Document;
 
@@ -32,8 +33,8 @@ export class Provider {
     @Prop({ required: true })
     location: string;
 
-    @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Collection' }])
-    collections: Types.ObjectId[];
+    @Prop([{ type: CollectionSchema }])
+    collections: Collection[];
 
     @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Coupon' }])
     coupons: Types.ObjectId[];

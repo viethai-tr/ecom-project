@@ -15,8 +15,14 @@ export class Coupon {
     @Prop({ min: 0 })
     percent: number;
 
+    @Prop({ min: 0, required: true })
+    minAmount: number;
+
     @Prop({ min: 0 })
-    maxAmount: number;
+    maxSale: number;
+
+    @Prop({ min: 0 })
+    saleAmount: number;
 }
 
 export const CouponSchema =

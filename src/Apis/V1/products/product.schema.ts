@@ -24,9 +24,6 @@ export class Product {
     })
     provider: Types.ObjectId;
 
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Collection' })
-    collection: Types.ObjectId;
-
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Brand' })
     brand: Types.ObjectId;
 

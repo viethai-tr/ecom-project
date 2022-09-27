@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document, Types } from 'mongoose';
 import { softDeletePlugin } from 'soft-delete-plugin-mongoose';
 
 export type CollectionDocument = Collection & Document;
@@ -11,6 +11,9 @@ export class Collection {
 
     @Prop()
     description: string;
+
+    @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'Product' }])
+    products: Types.ObjectId[];
 }
 
 export const CollectionSchema =
